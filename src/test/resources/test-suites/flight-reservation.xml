@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="flight-reservation">
+    <test name="passenger-count-1">
+        <parameter name="testDataPath" value="src/test/resources/test-data/flight-reservation/passenger-1.json" />
+        <classes>
+            <class name="com.manselenium.tests.flightreservation.FlightReservationTest"/>
+        </classes>
+    </test>
+</suite>
