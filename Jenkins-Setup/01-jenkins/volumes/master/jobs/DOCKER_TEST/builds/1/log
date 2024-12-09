@@ -1,8 +1,0 @@
-Started by user [8mha:////4JUZTc9rGTkyS6Zzs1cQAp1jZYllgDjitV4ZNbvSDxdgAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzeEgZu/dLi1CL9xJTczDwACG0V4sAAAAA=[0mManthan Mehta
-Running as SYSTEM
-Building remotely on [8mha:////4HBsO2l2sDhdlpo/gCNoEbXOUV4bq/uNpoMG8xUn4yIJAAAAmx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZ+/eT83ILSktQifT9/F1dDAHjR2ovEAAAA[0mNODE1 in workspace /Users/Projects/selenium-docker/Jenkins-Setup/01-jenkins/volumes/node/workspace/DOCKER_TEST
-[DOCKER_TEST] $ /bin/sh -xe /var/folders/23/sb13kv8s2mj9r1qlcf2j0t3h0000gn/T/jenkins2661184162283084181.sh
-+ docker ps
-CONTAINER ID   IMAGE                 COMMAND                  CREATED          STATUS          PORTS                                              NAMES
-9502eb366b54   jenkins/jenkins:lts   "/usr/bin/tini -- /u…"   25 minutes ago   Up 25 minutes   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   01-jenkins-jenkins-1
-Finished: SUCCESS

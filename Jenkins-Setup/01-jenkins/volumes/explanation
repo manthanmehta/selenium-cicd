@@ -1,4 +1,0 @@
-Since there will be lot of information jenkins is going to save when it will be up and running, do proper
-volume mapping, by default jenkins in a container store everything in /var/jenkins_home directory, map this to
-appropriate host directory and provide all the access to those directory in our case it is /volume/master
-or another option is in yaml file after image add user:root i.e means user is at root level with all the privaleges
