@@ -28,7 +28,7 @@ pipeline{
                  sh 'docker login -u ${DOCKER_HUB_USR} -p ${DOCKER_HUB_PSW}'
 //                 sh 'echo ${DOCKER_HUB_PSW} | docker login -u {DOCKER_HUB_USR} --password-stdin'
                 sh 'docker push manthanmehtaa/selenium:lastest'
-                sh "docker tag manthanmehtaa/selenium:lastest manthanmehtaa/selenium:{$env.BUIlD_NUMBER}"
+                sh "docker tag manthanmehtaa/selenium:lastest manthanmehtaa/selenium:${env.BUIlD_NUMBER}"
                  sh "docker push manthanmehtaa/selenium:${env.BUIlD_NUMBER}"
             }
         }
