@@ -27,8 +27,7 @@ public class AbstractTests {
     private static final Logger log = LoggerFactory.getLogger(AbstractTests.class);
 
     @BeforeSuite
-    public  void setUpConfig(){
-        Config.initialize();
+    public  void setUpConfig(){Config.initialize();
     }
 
     @BeforeTest
@@ -46,19 +45,6 @@ public class AbstractTests {
         return new FirefoxDriver();
     }
 
-//    private WebDriver getRemoteDriver() throws MalformedURLException {
-//        Capabilities capabilities = new ChromeOptions();
-//        if (Constants.FIREFOX.equalsIgnoreCase(Config.get(Constants.BROWSER))) {
-//            capabilities = new FirefoxOptions();}
-//        String urlFormat = Config.get(Constants.GRID_URL_FORMAT);
-//        String hubHost = Config.get(Constants.GRID_HUB_HOST);
-//        String urlString = String.format(urlFormat, hubHost);
-//        log.info("grid url: {}", urlString);
-//
-//        // Use URL object explicitly
-//        URL gridUrl = new URL(urlString);
-//        return new RemoteWebDriver(gridUrl, capabilities);
-//    }
 private WebDriver getRemoteDriver() throws MalformedURLException {
     // Initialize capabilities based on browser type
     Capabilities capabilities = switch (Objects.requireNonNullElse(
@@ -87,57 +73,3 @@ private WebDriver getRemoteDriver() throws MalformedURLException {
         }
     }
 }
-//package com.manselenium.tests;
-//
-//import io.github.bonigarcia.wdm.WebDriverManager;
-//import org.openqa.selenium.Capabilities;
-//import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.chrome.ChromeOptions;
-//import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.openqa.selenium.firefox.FirefoxOptions;
-//import org.openqa.selenium.remote.RemoteWebDriver;
-//import org.testng.annotations.AfterTest;
-//import org.testng.annotations.BeforeTest;
-//
-//import java.net.MalformedURLException;
-//
-//public class AbstractTests {
-//
-//    public WebDriver driver;
-//
-//    @BeforeTest
-//    public void setDriver() throws MalformedURLException {
-//        if (Boolean.getBoolean("selenium.grid.enabled")) {
-//            this.driver = getRemoteDriver();
-//        } else {
-//            this.driver = getLocalDriver();
-//        }
-//    }
-//
-//    private WebDriver getLocalDriver() {
-//        WebDriverManager.firefoxdriver().setup();
-//        return new FirefoxDriver();
-//    }
-//
-//    private WebDriver getRemoteDriver() throws MalformedURLException {
-//        WebDriverManager.firefoxdriver().arch64().arch64();
-//        if (System.getProperty("browser", "firefox").equalsIgnoreCase("firefox")) {
-//            return RemoteWebDriver.builder()
-//                    .address("https://localhost:4444") // Selenium Grid URL
-//                    .oneOf(new FirefoxOptions()) // Setting Firefox options
-//                    .build();
-//        } else {
-//            return RemoteWebDriver.builder()
-//                    .address("https://localhost:4444") // Selenium Grid URL
-//                    .oneOf(new ChromeOptions()) // Setting Chrome options
-//                    .build();
-//        }
-//    }
-//
-//    @AfterTest
-//    public void quitDriver() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
-//}

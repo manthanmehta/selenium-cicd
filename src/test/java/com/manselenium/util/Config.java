@@ -13,21 +13,6 @@ public class Config {
     private  static final String DEFAULT_PROPERTIES= "config/default.properties";
     private static Properties properties;
 
-//    public void Config(){
-//        properties=loadProperties();
-//        System.out.println(properties);
-//        for(String key: properties.stringPropertyNames()){
-//            if(System.getProperties().contains(key)){
-//                properties.setProperty(key, System.getProperty(key));
-//            }
-//        }
-//        log.info("Test Properties");
-//        for(String key: properties.stringPropertyNames()){
-//            log.info("{}={}", key, properties.getProperty(key));
-//        }
-//    }
-
-
     public static void initialize(){
         properties=loadProperties();
         System.out.println(properties);
@@ -45,7 +30,6 @@ public class Config {
     public static String get(String key){
         return properties.getProperty(key);
     }
-
 
     private static Properties loadProperties(){
         Properties properties= new Properties();
