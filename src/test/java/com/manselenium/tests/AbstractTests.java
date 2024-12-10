@@ -27,7 +27,8 @@ public class AbstractTests {
     private static final Logger log = LoggerFactory.getLogger(AbstractTests.class);
 
     @BeforeSuite
-    public  void setUpConfig(){Config.initialize();
+    public  void setUpConfig(){
+        Config.initialize();
     }
 
     @BeforeTest
@@ -45,26 +46,38 @@ public class AbstractTests {
         return new FirefoxDriver();
     }
 
-private WebDriver getRemoteDriver() throws MalformedURLException {
-    // Initialize capabilities based on browser type
-    Capabilities capabilities = switch (Objects.requireNonNullElse(
-            Config.get(Constants.BROWSER), Constants.CHROME).toLowerCase()) {
-        case Constants.FIREFOX -> new FirefoxOptions();
-        default -> new ChromeOptions();
-    };
+//private WebDriver getRemoteDriver() throws MalformedURLException {
+//    // Initialize capabilities based on browser type
+//    Capabilities capabilities = switch (Objects.requireNonNullElse(
+//            Config.get(Constants.BROWSER), Constants.CHROME).toLowerCase()) {
+//        case Constants.FIREFOX -> new FirefoxOptions();
+//        default -> new ChromeOptions();
+//    };
+//
+//    // Get grid URL details
+//    String urlFormat = Config.get(Constants.GRID_URL_FORMAT);
+//    String hubHost = Config.get(Constants.GRID_HUB_HOST);
+//    String urlString = String.format(urlFormat, hubHost);
+//
+//    // Log grid URL
+//    log.info("Grid URL: " + urlString);
+//
+//    // Construct URL object and initialize RemoteWebDriver
+//    URL gridUrl = new URL(urlString);
+//    return new RemoteWebDriver(gridUrl, capabilities);
+//}
 
-    // Get grid URL details
-    String urlFormat = Config.get(Constants.GRID_URL_FORMAT);
-    String hubHost = Config.get(Constants.GRID_HUB_HOST);
-    String urlString = String.format(urlFormat, hubHost);
-
-    // Log grid URL
-    log.info("Grid URL: " + urlString);
-
-    // Construct URL object and initialize RemoteWebDriver
-    URL gridUrl = new URL(urlString);
-    return new RemoteWebDriver(gridUrl, capabilities);
-}
+    private WebDriver getRemoteDriver() throws MalformedURLException {
+        Capabilities capabilities = new ChromeOptions();
+        if(Constants.FIREFOX.equalsIgnoreCase(Config.get(Constants.BROWSER))){
+            capabilities = new FirefoxOptions();
+        }
+        String urlFormat = Config.get(Constants.GRID_URL_FORMAT);
+        String hubHost = Config.get(Constants.GRID_HUB_HOST);
+        String url = String.format(urlFormat, hubHost);
+        log.info("grid url: {}", url);
+        return new RemoteWebDriver(new URL(url), capabilities);
+    }
 
     @AfterTest
     public void quitDriver(){
